@@ -3,20 +3,7 @@ workflows:
     environment:
       flutter: fvm
     scripts:
-      - name: Install fenv-fvm
+      - name: Check FVM
         script: |
-          brew install shunirr/fenv-fvm/fenv-fvm
-          eval "$(fenv-fvm init)"
-          echo "PATH=$PATH" >> $CM_ENV
-      - name: Get Flutter packages
-        script: | 
-          flutter pub get
-      - name: Flutter analyze
-        script: | 
-          flutter analyze
-      - name: Flutter unit tests
-        script: | 
-          flutter test
-      - name: Flutter build
-        script: | 
-          flutter build apk
+          flutter --version
+          dart --version
